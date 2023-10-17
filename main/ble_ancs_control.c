@@ -22,7 +22,6 @@
 #include "esp_gatt_common_api.h"
 #include "ble_ancs.h"
 #include "esp_timer.h"
-#include "station_example_main.c"
 
 #define BLE_ANCS_TAG                              "BLE_ANCS"
 #define EXAMPLE_DEVICE_NAME                       "ESP_BLE_ANCS"
@@ -609,7 +608,7 @@ void init_timer(void)
     ESP_ERROR_CHECK(esp_timer_create(&periodic_timer_args, &periodic_timer));
 }
 
-void app_main(void)
+void start_ble_ancs(void)
 {
     esp_err_t ret;
 
@@ -625,8 +624,6 @@ void app_main(void)
     init_timer();
 
     ESP_ERROR_CHECK(esp_bt_controller_mem_release(ESP_BT_MODE_CLASSIC_BT));
-
-    wifi_init_sta();
 
     esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
     ret = esp_bt_controller_init(&bt_cfg);

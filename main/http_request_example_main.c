@@ -120,7 +120,7 @@ static void http_get_task(void *pvParameters)
     }
 }
 
-void app_main(void)
+void app_mainx(void)
 {
     ESP_ERROR_CHECK( nvs_flash_init() );
     ESP_ERROR_CHECK(esp_netif_init());
